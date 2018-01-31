@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.giszone.photopicker">
+
+    <application>
+
+        <activity
+            android:name="com.giszone.photopicker.PhotoPickerActivity"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/PhotoPickerTheme" />
+        <activity
+            android:name="com.giszone.photopicker.PhotoPreviewActivity"
+            android:theme="@style/PhotoPickerTheme" />
+    </application>
+
+</manifest>

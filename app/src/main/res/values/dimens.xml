@@ -1,0 +1,3 @@
+<resources>
+    <dimen name="grid_padding">16dp</dimen>
+</resources>
