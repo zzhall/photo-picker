@@ -14,6 +14,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 /**
  * Created by zzh on 15/6/23.
@@ -24,7 +25,7 @@ import java.util.Date;
 public class ImageCaptureManager {
 
     public static final int REQUEST_TAKE_PHOTO = 1;
-    public static String mStorageDir = Environment.DIRECTORY_PICTURES;
+    public static String sStorageDir;
 
     private final static String CAPTURED_PHOTO_PATH_KEY = "mCurrentPhotoPath";
 
@@ -37,9 +38,12 @@ public class ImageCaptureManager {
 
     private File createImageFile() throws IOException {
         // Create an image file name
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.CHINA).format(new Date());
         String imageFileName = "JPEG_" + timeStamp + "_";
-        File storageDir = new File(Environment.getExternalStorageDirectory(), mStorageDir);
+        if (sStorageDir == null || sStorageDir.isEmpty()) {
+            sStorageDir = Environment.DIRECTORY_PICTURES;
+        }
+        File storageDir = new File(Environment.getExternalStorageDirectory(), sStorageDir);
         if (!storageDir.exists()) {
             if (!storageDir.mkdir()) {
                 throw new IOException();

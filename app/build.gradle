@@ -29,6 +29,5 @@ dependencies {
 
     compile project(':photopicker')
 
-//    compile 'com.github.zzhall:photo-picker:1.0.4'
-
+//    compile 'com.github.zzhall:photo-picker:v1.0.1'
 }
